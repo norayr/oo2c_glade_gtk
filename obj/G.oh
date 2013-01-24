@@ -1,0 +1,61 @@
+#ifndef _MODULE_G_
+#define _MODULE_G_
+
+#include <__typemap.h>
+#include <RT0.oh>
+#include <RT0.oh>
+#include <Object.oh>
+#include <Exception.oh>
+#define G__FALSE 0
+#define G__TRUE 1
+typedef OOC_INT32 G__boolean;
+typedef OOC_CHAR8 G__char;
+typedef OOC_REAL32 G__float;
+typedef OOC_REAL64 G__double;
+typedef OOC_INT32 G__int;
+typedef OOC_INT32 G__size;
+typedef OOC_INT32 G__ssize;
+typedef OOC_INT32 G__uint;
+typedef OOC_CHAR8 G__uint8;
+typedef OOC_INT16 G__uint16;
+typedef OOC_INT32 G__uint32;
+typedef OOC_INT32 G__ulong;
+typedef OOC_INT16 G__ushort;
+typedef OOC_INT32 G__Quark;
+typedef OOC_PTR G__VoidPtr;
+typedef OOC_PTR G__ArrayPtr;
+typedef OOC_PTR G__DataPtr;
+typedef OOC_PTR G__pointer;
+typedef OOC_PTR G__SListPtr;
+typedef OOC_PTR G__TypeClassPtr;
+typedef OOC_CHAR8 *G__string;
+typedef void (*G__VoidFunc)(void);
+typedef struct G__Error *G__ErrorPtr;
+typedef struct G__Error {
+  OOC_INT32 domain;
+  OOC_INT32 code;
+  G__string message;
+} G__Error;
+typedef struct G__TypeInstance {
+  OOC_PTR g_class;
+} G__TypeInstance;
+typedef struct G__Object {
+  struct G__TypeInstance g_type_instance;
+  OOC_INT32 ref_count;
+  OOC_CHAR8 __pad12;
+  OOC_CHAR8 __pad13;
+  OOC_CHAR8 __pad14;
+  OOC_CHAR8 __pad15;
+  OOC_PTR qdata;
+} G__Object;
+extern void g_free(OOC_PTR mem);
+extern G__string g_locale_to_utf8(G__string opsysstring, OOC_INT32 len, OOC_INT32 *bytes_read, OOC_INT32 *bytes_written, OOC_PTR error);
+extern void OOC_G_init(void);
+extern void OOC_G_open(RT0__Module client);
+extern void OOC_G_destroy(void);
+extern void OOC_G_close(RT0__Module client);
+
+/* run-time meta data */
+#endif /* _MODULE_G_ */
+
+/* --- */

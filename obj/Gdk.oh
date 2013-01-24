@@ -1,0 +1,130 @@
+#ifndef _MODULE_Gdk_
+#define _MODULE_Gdk_
+
+#include <__typemap.h>
+#include <RT0.oh>
+#include <G.oh>
+#include <Pango.oh>
+#include <RT0.oh>
+#include <Object.oh>
+#include <Exception.oh>
+#define Gdk__GRAVITY_NORTH_WEST 1
+#define Gdk__HINT_MIN_SIZE 2
+#define Gdk__COPY 0
+#define Gdk__INVERT 1
+#define Gdk__XOR 2
+#define Gdk__CLEAR 3
+#define Gdk__AND 4
+#define Gdk__AND_REVERSE 5
+#define Gdk__AND_INVERT 6
+#define Gdk__NOOP 7
+#define Gdk__Or 8
+#define Gdk__EQUIV 9
+#define Gdk__OR_REVERSE 10
+#define Gdk__COPY_INVERT 11
+#define Gdk__OR_INVERT 12
+#define Gdk__NAND 13
+#define Gdk__SET 14
+#define Gdk__CAP_NOT_LAST 0
+#define Gdk__CAP_BUTT 1
+#define Gdk__CAP_ROUND 2
+#define Gdk__CAP_PROJECTING 3
+#define Gdk__JOIN_MITER 0
+#define Gdk__JOIN_ROUND 1
+#define Gdk__JOIN_BEVEL 2
+#define Gdk__LINE_SOLID 0
+#define Gdk__LINE_ON_OFF_DASH 1
+#define Gdk__LINE_DOUBLE_DASH 2
+typedef OOC_PTR Gdk__ColormapPtr;
+typedef OOC_PTR Gdk__EventPtr;
+typedef OOC_PTR Gdk__EventExposePtr;
+typedef OOC_PTR Gdk__FontPtr;
+typedef OOC_PTR Gdk__CPtr;
+typedef OOC_PTR Gdk__ImagePtr;
+typedef OOC_PTR Gdk__PixmapPtr;
+typedef struct Gdk__Color *Gdk__ColorPtr;
+typedef struct Gdk__Color {
+  OOC_INT32 pixel;
+  OOC_INT16 red;
+  OOC_INT16 green;
+  OOC_INT16 blue;
+} Gdk__Color;
+typedef struct Gdk__Drawable *Gdk__DrawablePtr;
+typedef struct Gdk__Drawable {
+  struct G__Object parent_instance;
+} Gdk__Drawable;
+typedef struct Gdk__GCValues *Gdk__GCValuesPtr;
+typedef struct Gdk__GCValues {
+  struct Gdk__Color foreground;
+  struct Gdk__Color background;
+  OOC_PTR font;
+  OOC_INT32 function;
+  OOC_INT32 fill;
+  OOC_PTR tile;
+  OOC_PTR stipple;
+  OOC_PTR clip_mask;
+  OOC_INT32 subwindow_mode;
+  OOC_INT32 ts_x_origin;
+  OOC_INT32 ts_y_origin;
+  OOC_INT32 clip_x_origin;
+  OOC_INT32 clip_y_origin;
+  OOC_INT32 graphics_exposures;
+  OOC_INT32 line_width;
+  OOC_INT32 line_style;
+  OOC_INT32 cap_style;
+  OOC_INT32 join_style;
+} Gdk__GCValues;
+typedef struct Gdk__Geometry *Gdk__GeometryPtr;
+typedef struct Gdk__Geometry {
+  OOC_INT32 min_width;
+  OOC_INT32 min_height;
+  OOC_INT32 max_width;
+  OOC_INT32 max_height;
+  OOC_INT32 base_width;
+  OOC_INT32 base_height;
+  OOC_INT32 width_inc;
+  OOC_INT32 height_inc;
+  OOC_REAL64 min_aspect;
+  OOC_REAL64 max_aspect;
+  OOC_INT32 win_gravity;
+} Gdk__Geometry;
+typedef struct Gdk__Rectangle *Gdk__RectanglePtr;
+typedef struct Gdk__Rectangle {
+  OOC_INT32 x;
+  OOC_INT32 y;
+  OOC_INT32 width;
+  OOC_INT32 height;
+} Gdk__Rectangle;
+typedef struct Gdk__Drawable Gdk__Window;
+typedef Gdk__DrawablePtr Gdk__WindowPtr;
+extern OOC_INT32 gdk_colormap_alloc_color(OOC_PTR colormap, Gdk__ColorPtr color, OOC_INT32 writeable, OOC_INT32 best_match);
+extern OOC_PTR gdk_colormap_get_system(void);
+extern void gdk_draw_arc(Gdk__DrawablePtr drawable, OOC_PTR gc, OOC_INT32 filled, OOC_INT32 x, OOC_INT32 y, OOC_INT32 width, OOC_INT32 height, OOC_INT32 angle1, OOC_INT32 angle2);
+extern void gdk_draw_image(Gdk__DrawablePtr drawable, OOC_PTR gc, OOC_PTR image, OOC_INT32 xsrc, OOC_INT32 ysrc, OOC_INT32 xdest, OOC_INT32 ydest, OOC_INT32 width, OOC_INT32 height);
+extern void gdk_draw_layout(Gdk__DrawablePtr drawable, OOC_PTR gc, OOC_INT32 x, OOC_INT32 y, OOC_PTR layout);
+extern void gdk_draw_line(Gdk__DrawablePtr drawable, OOC_PTR gc, OOC_INT32 x1, OOC_INT32 y1, OOC_INT32 x2, OOC_INT32 y2);
+extern void gdk_draw_point(Gdk__DrawablePtr drawable, OOC_PTR gc, OOC_INT32 x, OOC_INT32 y);
+extern void gdk_draw_rectangle(Gdk__DrawablePtr drawable, OOC_PTR gc, OOC_INT32 filled, OOC_INT32 x, OOC_INT32 y, OOC_INT32 width, OOC_INT32 height);
+extern OOC_PTR gdk_drawable_get_image(Gdk__DrawablePtr drawable, OOC_INT32 x, OOC_INT32 y, OOC_INT32 width, OOC_INT32 height);
+extern void gdk_gc_get_values(OOC_PTR gc, struct Gdk__GCValues *values);
+extern OOC_PTR gdk_gc_new(Gdk__DrawablePtr drawable);
+extern void gdk_gc_set_background(OOC_PTR gc, Gdk__ColorPtr color);
+extern void gdk_gc_set_clip_origin(OOC_PTR gc, OOC_INT32 x, OOC_INT32 y);
+extern void gdk_gc_set_clip_rectangle(OOC_PTR gc, Gdk__RectanglePtr rectangle);
+extern void gdk_gc_set_foreground(OOC_PTR gc, Gdk__ColorPtr color);
+extern void gdk_gc_set_function(OOC_PTR gc, OOC_INT32 function);
+extern void gdk_gc_set_line_attributes(OOC_PTR gc, OOC_INT32 line_width, OOC_INT32 line_style, OOC_INT32 cap_style, OOC_INT32 join_style);
+extern void gdk_gc_set_rgb_fg_color(OOC_PTR gc, Gdk__ColorPtr color);
+extern void gdk_gc_set_rgb_bg_color(OOC_PTR gc, Gdk__ColorPtr color);
+extern OOC_INT32 gdk_image_get_pixel(OOC_PTR image, OOC_INT32 x, OOC_INT32 y);
+extern void gdk_image_put_pixel(OOC_PTR image, OOC_INT32 x, OOC_INT32 y, OOC_INT32 pixel);
+extern OOC_PTR gdk_pixmap_new(Gdk__DrawablePtr drawable, OOC_INT32 width, OOC_INT32 height, OOC_INT32 depth);
+extern void OOC_Gdk_init(void);
+extern void OOC_Gdk_open(RT0__Module client);
+extern void OOC_Gdk_destroy(void);
+extern void OOC_Gdk_close(RT0__Module client);
+
+/* run-time meta data */
+#endif /* _MODULE_Gdk_ */
+
+/* --- */

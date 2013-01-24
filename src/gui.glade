@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE glade-interface SYSTEM "glade-2.0.dtd">
+<!--Generated with glade3 3.4.5 on Wed Jan  7 21:50:29 2009 -->
+<glade-interface>
+  <requires lib="canvas"/>
+  <widget class="GtkWindow" id="window">
+    <property name="visible">True</property>
+    <property name="title" translatable="yes">Test OOC-Glade</property>
+    <signal name="delete_event" handler="gtk_main_quit"/>
+    <signal name="destroy_event" handler="gtk_main_quit"/>
+    <child>
+      <widget class="GtkHBox" id="hbox">
+        <property name="width_request">200</property>
+        <property name="height_request">60</property>
+        <property name="visible">True</property>
+        <property name="spacing">38</property>
+        <child>
+          <widget class="GtkVBox" id="vbox">
+            <property name="visible">True</property>
+            <child>
+              <widget class="GtkLabel" id="label">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">Print to stdout</property>
+              </widget>
+            </child>
+            <child>
+              <widget class="GtkButton" id="button">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="label" translatable="yes">Hello</property>
+                <property name="response_id">0</property>
+                <signal name="clicked" handler="Hello"/>
+              </widget>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">False</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </widget>
+          <packing>
+            <property name="expand">False</property>
+            <property name="padding">10</property>
+          </packing>
+        </child>
+        <child>
+          <packing>
+            <property name="position">1</property>
+          </packing>
+        </child>
+      </widget>
+    </child>
+  </widget>
+</glade-interface>

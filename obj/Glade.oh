@@ -1,0 +1,23 @@
+#ifndef _MODULE_Glade_
+#define _MODULE_Glade_
+
+#include <__typemap.h>
+#include <RT0.oh>
+#include <Gtk.oh>
+#include <RT0.oh>
+#include <Object.oh>
+#include <Exception.oh>
+typedef OOC_PTR Glade__XMLPtr;
+typedef OOC_CHAR8 *Glade__CString;
+extern OOC_PTR glade_xml_new(Glade__CString fname, Glade__CString root, Glade__CString domain);
+extern void glade_xml_signal_autoconnect(OOC_PTR self);
+extern Gtk__WidgetPtr glade_xml_get_widget(OOC_PTR self, Glade__CString name);
+extern void OOC_Glade_init(void);
+extern void OOC_Glade_open(RT0__Module client);
+extern void OOC_Glade_destroy(void);
+extern void OOC_Glade_close(RT0__Module client);
+
+/* run-time meta data */
+#endif /* _MODULE_Glade_ */
+
+/* --- */

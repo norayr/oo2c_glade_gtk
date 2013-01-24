@@ -1,0 +1,22 @@
+#ifndef _MODULE_HelloWorld_
+#define _MODULE_HelloWorld_
+
+#include <__typemap.h>
+#include <RT0.oh>
+#include <G.oh>
+#include <Gdk.oh>
+#include <Gtk.oh>
+#include <RT0.oh>
+#include <Object.oh>
+#include <Exception.oh>
+extern void Hello(Gtk__WidgetPtr widget, OOC_PTR data);
+extern OOC_INT32 Draw(Gtk__WidgetPtr widget, OOC_PTR event, OOC_PTR data);
+extern void OOC_HelloWorld_init(void);
+extern void OOC_HelloWorld_open(RT0__Module client);
+extern void OOC_HelloWorld_destroy(void);
+extern void OOC_HelloWorld_close(RT0__Module client);
+
+/* run-time meta data */
+#endif /* _MODULE_HelloWorld_ */
+
+/* --- */

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<package name="Glade">
+  <version current="0" revision="0" age="0"/>
+
+<!-- Settings for unix -->
+  <options>
+    <define name="LibGladePrefix">-export-dynamic -L/usr/lib</define>
+    <define name='cflags'>-g -O2</define>
+  </options>
+
+</package>

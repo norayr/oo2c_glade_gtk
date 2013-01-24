@@ -1,0 +1,47 @@
+#ifndef _MODULE_Pango_
+#define _MODULE_Pango_
+
+#include <__typemap.h>
+#include <RT0.oh>
+#include <G.oh>
+#include <RT0.oh>
+#include <Object.oh>
+#include <Exception.oh>
+#define Pango__SCALE 1024
+typedef OOC_PTR Pango__ContextPtr;
+typedef OOC_PTR Pango__FontDescriptionPtr;
+typedef OOC_PTR Pango__FontPtr;
+typedef OOC_PTR Pango__LanguagePtr;
+typedef OOC_PTR Pango__LayoutPtr;
+typedef struct Pango__FontMetrics *Pango__FontMetricsPtr;
+typedef struct Pango__FontMetrics {
+  OOC_INT32 ref_count;
+  OOC_INT32 ascent;
+  OOC_INT32 descent;
+  OOC_INT32 approximate_char_width;
+  OOC_INT32 approximate_digit_width;
+} Pango__FontMetrics;
+typedef struct Pango__Rectangle *Pango__RectanglePtr;
+typedef struct Pango__Rectangle {
+  OOC_INT32 x;
+  OOC_INT32 y;
+  OOC_INT32 width;
+  OOC_INT32 height;
+} Pango__Rectangle;
+extern Pango__FontMetricsPtr pango_context_get_metrics(OOC_PTR context, OOC_PTR desc, OOC_PTR language);
+extern OOC_PTR pango_font_description_from_string(G__string str);
+extern Pango__FontMetricsPtr pango_font_get_metrics(OOC_PTR font, OOC_PTR language);
+extern void pango_font_metrics_unref(Pango__FontMetricsPtr metrics);
+extern void pango_layout_get_pixel_extents(OOC_PTR layout, struct Pango__Rectangle *ink_rect, struct Pango__Rectangle *logical_rect);
+extern void pango_layout_get_pixel_size(OOC_PTR layout, OOC_INT32 *width, OOC_INT32 *height);
+extern void pango_layout_set_font_description(OOC_PTR layout, OOC_PTR desc);
+extern void pango_layout_set_text(OOC_PTR layout, G__string text, OOC_INT32 length);
+extern void OOC_Pango_init(void);
+extern void OOC_Pango_open(RT0__Module client);
+extern void OOC_Pango_destroy(void);
+extern void OOC_Pango_close(RT0__Module client);
+
+/* run-time meta data */
+#endif /* _MODULE_Pango_ */
+
+/* --- */

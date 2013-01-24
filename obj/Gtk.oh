@@ -1,0 +1,104 @@
+#ifndef _MODULE_Gtk_
+#define _MODULE_Gtk_
+
+#include <__typemap.h>
+#include <RT0.oh>
+#include <G.oh>
+#include <Gdk.oh>
+#include <Pango.oh>
+#include <RT0.oh>
+#include <Object.oh>
+#include <Exception.oh>
+#define Gtk__WINDOW_TOPLEVEL 0
+#define Gtk__EXPAND 1
+#define Gtk__SHRINK 2
+#define Gtk__FILL 4
+#define Gtk__BUTTONS_NONE 0
+#define Gtk__BUTTONS_OK 1
+#define Gtk__BUTTONS_CLOSE 2
+#define Gtk__BUTTONS_CANCEL 3
+#define Gtk__BUTTONS_YES_NO 4
+#define Gtk__BUTTONS_OK_CANCEL 5
+#define Gtk__DIALOG_MODAL 1
+#define Gtk__DIALOG_DESTROY_WITH_PARENT 2
+#define Gtk__DIALOG_NO_SEPARATOR 4
+#define Gtk__MESSAGE_INFO 0
+#define Gtk__MESSAGE_WARNING 1
+#define Gtk__MESSAGE_QUESTION 2
+#define Gtk__MESSAGE_ERROR 3
+typedef struct Gtk__Object {
+  struct G__Object parent_instance;
+  OOC_INT32 flags;
+} Gtk__Object;
+typedef OOC_PTR Gtk__RcStylePtr;
+typedef struct Gdk__Rectangle Gtk__Allocation;
+typedef struct Gtk__Style *Gtk__StylePtr;
+typedef struct Gtk__Style {
+  struct G__Object parent_instance;
+  struct Gdk__Color fg[5];
+  struct Gdk__Color bg[5];
+  struct Gdk__Color light[5];
+  struct Gdk__Color dark[5];
+  struct Gdk__Color mid[5];
+  struct Gdk__Color text[5];
+  struct Gdk__Color base[5];
+  struct Gdk__Color text_aa[5];
+  struct Gdk__Color black;
+  struct Gdk__Color white;
+  OOC_PTR font_desc;
+  OOC_INT32 xthickness;
+  OOC_INT32 ythickness;
+  OOC_PTR fg_gc[5];
+  OOC_PTR bg_gc[5];
+  OOC_PTR light_gc[5];
+  OOC_PTR dark_gc[5];
+  OOC_PTR mid_gc[5];
+  OOC_PTR text_gc[5];
+  OOC_PTR base_gc[5];
+  OOC_PTR text_aa_gc[5];
+  OOC_PTR black_gc;
+  OOC_PTR white_gc;
+  OOC_PTR bg_pixmap[5];
+  OOC_INT32 attach_count;
+  OOC_INT32 depth;
+  OOC_PTR colormap;
+  OOC_PTR private_font;
+  OOC_PTR private_font_desc;
+  OOC_PTR rc_style;
+  OOC_PTR styles;
+  OOC_PTR property_cache;
+  OOC_PTR icon_factories;
+} Gtk__Style;
+typedef struct Gtk__Requisition {
+  OOC_INT32 width;
+  OOC_INT32 height;
+} Gtk__Requisition;
+typedef struct Gtk__Widget *Gtk__WidgetPtr;
+typedef struct Gtk__Widget {
+  struct Gtk__Object object;
+  OOC_INT16 private_flags;
+  OOC_CHAR8 state;
+  OOC_CHAR8 saved_state;
+  OOC_CHAR8 __pad36;
+  OOC_CHAR8 __pad37;
+  OOC_CHAR8 __pad38;
+  OOC_CHAR8 __pad39;
+  G__string name;
+  Gtk__StylePtr style;
+  struct Gtk__Requisition requisition;
+  struct Gdk__Rectangle allocation;
+  Gdk__DrawablePtr window;
+  Gtk__WidgetPtr parent;
+} Gtk__Widget;
+typedef OOC_CHAR8 **Gtk__ArgVector;
+extern void gtk_init(OOC_INT32 *argc, Gtk__ArgVector *argv);
+extern void gtk_main(void);
+extern void OOC_Gtk_init(void);
+extern void OOC_Gtk_open(RT0__Module client);
+extern void OOC_Gtk_destroy(void);
+extern void OOC_Gtk_close(RT0__Module client);
+
+/* run-time meta data */
+#endif /* _MODULE_Gtk_ */
+
+/* --- */
